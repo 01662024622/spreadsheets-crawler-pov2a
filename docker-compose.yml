@@ -1,0 +1,46 @@
+version: '3.2'
+
+services:
+    spreadsheet-crawler-pov2a:
+        build: ./
+        image: spreadsheet-crawler-pov2a:latest
+        volumes:
+          - type: bind
+            source: /home/thangvm/credentials
+            target: /root/credentials
+        environment:
+            - DB_DRIVER=com.mysql.cj.jdbc.Driver
+            - DB_URL=jdbc:mysql://sp1.dev.native.vn:3306/qttt_mkt?createDatabaseIfNotExist=true&autoReconnect=true&UseUnicode=true&characterEncoding=utf8&useSSL=false
+            - DB_USERNAME=root
+            - DB_PASSWORD=Topica@123
+            - DB_DDL_AUTO=validate
+            - DB_PLATFORM=vn.topica.datashine.spreadsheetscrawler.utils.mysqldialect.CustomMysqlDialect
+            - C3B_DRIVEID_THUONG=1pUsbj2-VEHTScMoYQHqIU47dqCOGce3U
+            - C3B_DRIVEID_VIP=1audCbDJbjcczsHsx8fuYQAm_RAX1g0a4
+            - C3B_DRIVEID_CS18=15OSyFt1yKUGtogk7XJApHwCzxbJiiEdf
+            - C3B_DRIVEID_D500=13uFdvDqrcBRXRVHmf68FiLi85RUxlL7h
+            - C3B_DRIVEID_DUAN=1F9SneXPojo9SbEoF2Q-VapeNzn9cpz12
+            - C3B_CRAWLER_CRON_DAILY=0 0 0,10,13,18,22 * * *?
+            - L1SX_DRIVEID_THUONG=1TWfHJsOaQ9L3-8Mse_yRNMgha7_YSV7x
+            - L1SX_DRIVEID_VIP=1IqY9pClmvOATRoyczI0RAMurSRqERXQs
+            - L1SX_DRIVEID_CS18=1Z1q8dZxa_LHNUyrPCQ-WE-yBjTi9kxoY
+            - L1SX_DRIVEID_D500=1VKRPsciEGW3l1T1nfRBS6_rQULgbkZ6l
+            - L1SX_DRIVEID_DUAN=1bIlPeP5pxMzEZCey7b9Pl-VpkpSuWbCf
+            - L1SX_CRAWLER_CRON_DAILY=0 0 0,10,13,18,22 * * *?
+            - L1BG_DRIVEID_THUONG=1RLSMw5EmcmVFXYBl6IcOhgIy7YTAV5t3
+            - L1BG_DRIVEID_VIP=16o5cRMSQzOaLG-MndGME2cBSfIOJTLrw
+            - L1BG_DRIVEID_CS18=1uLO2hB1sgf5E34BlyCDgbKIXnh-ZlQmp
+            - L1BG_DRIVEID_D500=1euG5Mz2PcHHn71zKSRbE93Q8d4C0stqS
+            - L1BG_DRIVEID_DUAN=1ObD8j702FJ-Nku2fEvaKwkQEd_aWMuGf
+            - L1BG_CRAWLER_CRON_DAILY=0 0 0,10,13,18,22 * * *?
+            - TIC_DRIVEID_ALL=18HT3DE18kuq2baJu5QuR-hhhEpbVCpUj
+            - TIC_CRAWLER_CRON_DAILY=0 0 0,10,13,18,22 * * *?
+            - TONKHO_DRIVEID_ALL=1_jS56_3SXBY4QREnUPQSUhAYJwcjeL9k
+            - TONKHO_CRAWLER_CRON_DAILY=0 0 0,10,13,18,22 * * *?
+            - RE_DRIVEID_ALL=1VIYFWS7c0zY0k1V8PWci5GE3rsIA9h_N
+            - RE_CRAWLER_CRON_DAILY=0 0 0,10,13,18,22 * * *?
+
+        networks:
+            nvn_net:
+networks:
+    nvn_net:
